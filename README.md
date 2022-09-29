@@ -30,4 +30,4 @@ Utilizei o package GEOCODE para localizar as cordernadas do endereço e plotar n
 
 Como possível melhoria, trocar a GEOCODE pelo servido da Google - GEOCODING API, por oferecer melhores resultados de pesquisa e um tempo de latência menor.
 
-Para esse teste, decidi não utilizar ele por ser um serviço PAGO da Google. Além disso, meu plano gratis do Google Cloud já esgotou.
+Não utilizar ele por ser um serviço PAGO da Google. Além disso, infelizmente meu plano gratis do Google Cloud já esgotou.
