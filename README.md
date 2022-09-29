@@ -19,7 +19,6 @@ Desenvolva um aplicativo utilizando Flutter, que ajude o Carlos a melhorar o seu
 fluxo de trabalho.
 
 ## DETALHES DO PROJETO
-- Arquitetura: MVC;
 - Gerenciador de estado: BloC e Cubit;
 - Persistência dos dados: SQLite.
 - Diagrama: 
