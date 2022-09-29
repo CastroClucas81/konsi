@@ -18,9 +18,14 @@ principalmente quando o documento que ele está analisando está com um CEP inv�
 Desenvolva um aplicativo utilizando Flutter, que ajude o Carlos a melhorar o seu
 fluxo de trabalho.
 
+## DETALHES DO PROJETO
+- Arquitetura: MVC;
+- Gerenciador de estado: BloC e Cubit;
+- Persistência dos dados: SQLite.
+
 ## OBSERVAÇÕES
 Utilizei o package GEOCODE para localizar as cordernadas do endereço e plotar no mapa. Porém o seu tempo de resposta é demasiadamente demorado.
 
-Como possível melhoria, trocar a GEOCODE pelo servido da Google - Geocoding API, por oferecer melhores resultados de pesquisa e um tempo de latência menor.
+Como possível melhoria, trocar a GEOCODE pelo servido da Google - GEOCODING API, por oferecer melhores resultados de pesquisa e um tempo de latência menor.
 
 Para esse teste, decidi não utilizar ele por ser um serviço PAGO da Google. Além disso, meu plano gratis do Google Cloud já esgotou.
