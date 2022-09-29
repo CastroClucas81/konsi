@@ -6,6 +6,7 @@ import 'package:konsi/repositories/address_repository_interface.dart';
 class CepBloc extends Bloc<CepEvent, CepState> {
   CepBloc(this._addressRepository) : super(InitialCepState()) {
     on<FetchCepEvent>(_findCEPData);
+    on<ResetCepEvent>(_resetCep);
   }
 
   final AddressRepositoryInterface _addressRepository;
@@ -21,5 +22,9 @@ class CepBloc extends Bloc<CepEvent, CepState> {
     } catch (err) {
       emitter(ErrorCepState(message: err.toString()));
     }
+  }
+
+  _resetCep(ResetCepEvent event, Emitter<CepState> emitter) {
+    emitter(InitialCepState());
   }
 }

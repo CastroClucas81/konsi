@@ -1,20 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:konsi/screens/dashboard_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:konsi/cubits/generate_map/map_cubit.dart';
+import 'package:konsi/routes/app_router.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    BlocProvider(
+      create: (context) => MapCubit(),
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final AppRouter _appRouter = AppRouter();
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Konsi',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: DashboardScreen(),
+      initialRoute: AppRouter.initialRoute,
+      onGenerateRoute: _appRouter.onGenerateRoute,
     );
   }
 }

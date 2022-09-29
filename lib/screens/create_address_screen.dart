@@ -3,8 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:konsi/blocs/cep/cep_bloc.dart';
 import 'package:konsi/blocs/cep/cep_event.dart';
 import 'package:konsi/blocs/cep/cep_state.dart';
-import 'package:konsi/components/customInput/custom_input.dart';
-import 'package:konsi/components/fullScreenLoading/full_screen_loading.dart';
+import 'package:konsi/components/custom_input/custom_input.dart';
+import 'package:konsi/components/full_screen_loading/full_screen_loading.dart';
+import 'package:konsi/components/map_flutter/map_flutter.dart';
 import 'package:konsi/cubits/create_address/create_address_cubit.dart';
 import 'package:konsi/cubits/create_address/create_address_state.dart';
 import 'package:konsi/models/address.dart';
@@ -105,6 +106,7 @@ class _CreateAddressScreenState extends State<CreateAddressScreen> {
                       }
 
                       if (cepState is SuccessCepState) {
+                        FocusManager.instance.primaryFocus?.unfocus();
                         _populateInputs(cepState.address);
                       }
                     },
@@ -175,6 +177,40 @@ class _CreateAddressScreenState extends State<CreateAddressScreen> {
                       return null;
                     },
                   ),
+                  BlocBuilder<CepBloc, CepState>(
+                    bloc: _cepBloc,
+                    builder: (context, cepState) {
+                      if (cepState is SuccessCepState) {
+                        return Padding(
+                          padding: const EdgeInsets.only(bottom: 10.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Localização do endereço através do CEP - ${cepState.address.cep}.",
+                                style: TextStyle(
+                                  fontSize: 16.0,
+                                ),
+                              ),
+                              Text(
+                                "Obs.: Não é necessário esperar a conclusão do carregamento para finalizar o cadastro.",
+                                style: TextStyle(
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.w500
+                                ),
+                              ),
+                              SizedBox(height: 5.0),
+                              MapFlutter(
+                                addressDescription: cepState.address.toString(),
+                              ),
+                            ],
+                          ),
+                        );
+                      }
+
+                      return Container();
+                    },
+                  ),
                   BlocListener<CreateAddressCubit, CreateAddressState>(
                     bloc: _createAddressCubit,
                     listener: (context, createState) {
@@ -185,6 +221,7 @@ class _CreateAddressScreenState extends State<CreateAddressScreen> {
                       }
 
                       if (createState is SuccessCreateAddressState) {
+                        _cepBloc.add(ResetCepEvent());
                         _clearInputs();
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(content: Text(createState.message)),

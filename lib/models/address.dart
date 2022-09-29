@@ -56,4 +56,8 @@ class Address {
 
     return data;
   }
+
+  String toString() {
+    return "$street $district, $city, $uf $cep";
+  }
 }

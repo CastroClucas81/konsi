@@ -33,7 +33,7 @@ class AddressRepository implements AddressRepositoryInterface {
 
       return adresses.map((address) => Address.fromJson(address)).toList();
     } catch (e) {
-      return Future.error("Lista vazia!");
+      return Future.error("Foi possível localizar os endereços cadastrados!");
     }
   }
 

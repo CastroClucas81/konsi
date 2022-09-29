@@ -1,8 +1,8 @@
 import 'package:extended_masked_text/extended_masked_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:konsi/components/customInput/custom_input.dart';
-import 'package:konsi/components/fullScreenLoading/full_screen_loading.dart';
+import 'package:konsi/components/custom_input/custom_input.dart';
+import 'package:konsi/components/full_screen_loading/full_screen_loading.dart';
 import 'package:konsi/cubits/adresses/adresses_cubit.dart';
 import 'package:konsi/cubits/adresses/adresses_state.dart';
 import 'package:konsi/cubits/search_address/search_address_cubit.dart';
@@ -99,7 +99,11 @@ class _AdressesScreenState extends State<AdressesScreen> {
 
                       return Card(
                         child: InkWell(
-                          onTap: () {},
+                          onTap: () => Navigator.pushNamed(
+                            context,
+                            "/address-details",
+                            arguments: currentAddress,
+                          ),
                           child: ListTile(
                             title: Text(
                               'CEP - ${currentAddress.cep}',

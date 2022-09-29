@@ -26,18 +26,6 @@ class DB {
 
   _onCreate(db, version) async {
     await db.execute(_adresses);
-
-    // seed
-    // await db.insert(
-    //   'adresses',
-    //   {
-    //     'cep': '45828280',
-    //     'street': 'Avenia Governador Valadares',
-    //     'district': 'Minas Gerais',
-    //     'city': 'Eunápolis',
-    //     'uf': 'BA',
-    //   },
-    // );
   }
 
   String get _adresses => '''

@@ -33,6 +33,9 @@ dependencies:
   flutter_bloc: ^8.0.1
   extended_masked_text: ^2.3.1
   sqflite: ^2.0.2
+  geocode: ^1.0.1
+  flutter_map: ^0.13.1
+
 
 dev_dependencies:
   flutter_test:

@@ -10,3 +10,8 @@ class FetchCepEvent extends CepEvent {
   @override
   List<Object?> get props => [cep];
 }
+
+class ResetCepEvent extends CepEvent {
+  @override
+  List<Object?> get props => [];
+}

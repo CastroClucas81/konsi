@@ -13,7 +13,7 @@ class AdressesCubit extends Cubit<AdressesState> {
       final address = await _addressRepository.listAll();
 
       if (address.length == 0) {
-        emit(EmptyAdressesState(message: "Lista vazia"));
+        emit(EmptyAdressesState(message: "Não há endereços cadastrados!"));
         return;
       }
 
