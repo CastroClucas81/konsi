@@ -22,6 +22,9 @@ fluxo de trabalho.
 - Arquitetura: MVC;
 - Gerenciador de estado: BloC e Cubit;
 - Persistência dos dados: SQLite.
+- Diagrama: 
+
+![alt text](https://github.com/CastroClucas81/konsi/blob/master/diagrama.png)
 
 ## OBSERVAÇÕES
 Utilizei o package GEOCODE para localizar as cordernadas do endereço e plotar no mapa. Porém o seu tempo de resposta é demasiadamente demorado.
